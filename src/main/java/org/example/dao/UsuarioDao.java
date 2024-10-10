@@ -28,7 +28,7 @@ public class UsuarioDao {
         conexao.close();
     }
 
-    public List<Usuario> buscarUsuarios() {
+    public List<Usuario> getAll() {
         List<Usuario> usuarios = new ArrayList<>();
         String sql = "SELECT nome, cpf, email, telefone FROM Usuarios";
 
@@ -36,10 +36,10 @@ public class UsuarioDao {
              ResultSet rs = stmt.executeQuery(sql)) {
 
             while (rs.next()) {
-                String nome = rs.getString("Pedro");
-                String cpf = rs.getString("99999999999");
-                String email = rs.getString("p9@email.com");
-                String telefone = rs.getString("21909090909");
+                String nome = rs.getString("nome");
+                String cpf = rs.getString("cpf");
+                String email = rs.getString("email");
+                String telefone = rs.getString("telefone");
 
                 usuarios.add(new Usuario(nome, cpf, email, telefone));
             }
