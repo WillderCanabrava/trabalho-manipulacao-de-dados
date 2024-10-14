@@ -15,7 +15,7 @@ public class UsuarioDao {
         conexao = ConnectionFactory.getConnection();
     }
 
-    public void cadastrar(Usuario usuario) throws SQLException {
+    public void insert(Usuario usuario) throws SQLException {
         PreparedStatement stm = conexao.prepareStatement("INSERT INTO usuarios (nome, cpf, email, telefone) VALUES (seq_usuarios.nextval, ?, ?, ?, ?)");
         stm.setString(1, usuario.getNome());
         stm.setString(2, usuario.getCpf());
